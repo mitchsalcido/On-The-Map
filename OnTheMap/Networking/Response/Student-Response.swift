@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Student: Codable {
+struct StudentInformation: Codable {
     let firstName: String
     let lastName: String
     let longitude: Double
@@ -33,7 +33,7 @@ struct Student: Codable {
 }
 
 struct StudentResultsResponse: Codable {
-    let results: [Student]
+    let results: [StudentInformation]
     enum CodingKeys: String, CodingKey {
         case results
     }

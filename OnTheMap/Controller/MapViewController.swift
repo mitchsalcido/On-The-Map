@@ -21,6 +21,12 @@ class MapViewController: UIViewController, MKMapViewDelegate {
     @IBAction func logoutBbiPressed(_ sender: Any) {
         logout()
     }
+    @IBAction func refreshButtonPressed(_ sender: Any) {
+        updateMap()
+    }
+    @IBAction func pinButtonPressed(_ sender: Any) {
+        pinMyLocation()
+    }
 }
 
 // MARK: MapView Delegates
@@ -45,10 +51,8 @@ extension MapViewController {
     
     func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
         if control == view.rightCalloutAccessoryView {
-            let app = UIApplication.shared
-            if let toOpen = view.annotation?.subtitle!, let url = URL(string: toOpen) {
-                //app.openURL(URL(string: toOpen)!)
-                app.open(url, options: [:], completionHandler: nil)
+            if let urlString = view.annotation?.subtitle!{
+                openURLString(urlString)
             }
         }
     }
@@ -73,7 +77,6 @@ extension MapViewController {
                 }
                 self.mapView.addAnnotations(annotations)
             } else {
-                
             }
         }
     }

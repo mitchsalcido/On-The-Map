@@ -31,7 +31,14 @@ extension LoginViewController {
         UdacityClient.postSession(username: userNameTextField.text ?? "", password: passwordTextField.text ?? "") {
             (success, error) in
             if success {
-                self.performSegue(withIdentifier: "TabBarControllerSegueID", sender: nil)
+                UdacityClient.getPublicUserData() {
+                    (success, error) in
+                    if success {
+                        self.performSegue(withIdentifier: "TabBarControllerSegueID", sender: nil)
+                    } else {
+                        self.showOkAlert(title: "Bad user info", message: "Unable to retrieve user data info")
+                    }
+                }
             } else {
                 self.showOkAlert(title: "Login Fail", message: error?.localizedDescription ?? "Unknown login failure")
             }

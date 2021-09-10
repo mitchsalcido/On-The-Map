@@ -7,6 +7,7 @@
 
 import Foundation
 
+// Request object for posting student location
 struct StudentLocationRequest: Codable {
     var uniqueKey: String
     var firstName: String

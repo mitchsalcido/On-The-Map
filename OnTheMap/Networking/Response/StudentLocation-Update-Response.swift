@@ -7,6 +7,7 @@
 
 import Foundation
 
+// Response object, result of posting user location
 struct StudentLocationResponse: Codable {
     let createdAt: String
     let objectId: String
@@ -16,6 +17,7 @@ struct StudentLocationResponse: Codable {
     }
 }
 
+// Response object, result of updating user location
 struct UpdateStudentLocationResponse: Codable {
     let updatedAt: String
     enum CodingKeys: String, CodingKey {

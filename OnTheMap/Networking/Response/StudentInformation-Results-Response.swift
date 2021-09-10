@@ -1,5 +1,5 @@
 //
-//  Student.swift
+//  StudentInformation-Results-Response.swift
 //  OnTheMap
 //
 //  Created by 1203 Broadway on 9/7/21.
@@ -7,6 +7,15 @@
 
 import Foundation
 
+// Response object, results of getStudents
+struct StudentResultsResponse: Codable {
+    let results: [StudentInformation]
+    enum CodingKeys: String, CodingKey {
+        case results
+    }
+}
+
+// Response object for student information. Data object for a student
 struct StudentInformation: Codable {
     let firstName: String
     let lastName: String
@@ -29,12 +38,5 @@ struct StudentInformation: Codable {
         case objectId
         case createdAt
         case updatedAt
-    }
-}
-
-struct StudentResultsResponse: Codable {
-    let results: [StudentInformation]
-    enum CodingKeys: String, CodingKey {
-        case results
     }
 }

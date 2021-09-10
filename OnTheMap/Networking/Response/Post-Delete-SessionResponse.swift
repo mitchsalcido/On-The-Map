@@ -1,5 +1,5 @@
 //
-//  PostSessionResponse.swift
+//  Post-Delete-SessionResponse.swift
 //  OnTheMap
 //
 //  Created by 1203 Broadway on 9/6/21.
@@ -7,6 +7,7 @@
 
 import Foundation
 
+// Response object, result from posting new session (loggin in)
 struct PostSessionResponse: Codable {
     let account: AccountInfo
     let session: SessionInfo
@@ -16,6 +17,7 @@ struct PostSessionResponse: Codable {
     }
 }
 
+// Response object, result from deleting session (logging out)
 struct DeleteSessionResponse: Codable {
     let session: SessionInfo
     enum CodingKeys: String, CodingKey {
@@ -23,18 +25,7 @@ struct DeleteSessionResponse: Codable {
     }
 }
 
-struct PostSessionErrorResponse: Codable, LocalizedError {
-    let status: Int
-    let error: String
-    enum CodingKeys: String, CodingKey {
-        case status
-        case error
-    }
-    var errorDescription: String? {
-        return error
-    }
-}
-
+// Response object, user account info
 struct AccountInfo: Codable {
     let registered: Bool
     let key: String
@@ -42,7 +33,10 @@ struct AccountInfo: Codable {
         case registered
         case key
     }
+    
 }
+
+// Response object, session info
 struct SessionInfo: Codable {
     let sessionId: String
     let expiration: String

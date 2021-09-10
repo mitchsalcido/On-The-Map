@@ -36,18 +36,18 @@
                             <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="6NA-F4-v8o">
                                 <rect key="frame" x="188.5" y="265" width="37" height="37"/>
                             </activityIndicatorView>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jMG-ER-fgi">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="jMG-ER-fgi">
                                 <rect key="frame" x="20" y="221" width="374" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no"/>
                                 <connections>
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="fxi-WP-VaX"/>
                                 </connections>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username-email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Rbo-lN-BOS">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username-email" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="Rbo-lN-BOS">
                                 <rect key="frame" x="20" y="177" width="374" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no"/>
                                 <connections>
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="KHc-nn-vLH"/>
                                 </connections>
@@ -206,7 +206,7 @@
                                         <rect key="frame" x="0.0" y="258" width="414" height="258"/>
                                         <subviews>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Location" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Djp-nb-W5Q">
-                                                <rect key="frame" x="0.0" y="0.0" width="414" height="64.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="414" height="51.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
                                                 <connections>
@@ -214,7 +214,7 @@
                                                 </connections>
                                             </textField>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Favorite media URL" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="48D-Xm-0JT">
-                                                <rect key="frame" x="0.0" y="64.5" width="414" height="64.5"/>
+                                                <rect key="frame" x="0.0" y="51.5" width="414" height="51.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
                                                 <connections>
@@ -222,14 +222,22 @@
                                                 </connections>
                                             </textField>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hD7-hl-fOn">
-                                                <rect key="frame" x="0.0" y="129" width="414" height="64.5"/>
-                                                <state key="normal" title="Button"/>
+                                                <rect key="frame" x="0.0" y="103" width="414" height="52"/>
+                                                <state key="normal" title="Submit Location"/>
                                                 <connections>
                                                     <action selector="buttonPressed:" destination="khu-K6-vx9" eventType="touchUpInside" id="kBq-1E-MaU"/>
                                                 </connections>
                                             </button>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="AqI-cZ-OPM">
+                                                <rect key="frame" x="0.0" y="155" width="414" height="51.5"/>
+                                                <subviews>
+                                                    <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="hc7-2U-53B">
+                                                        <rect key="frame" x="0.0" y="0.0" width="414" height="51.5"/>
+                                                    </activityIndicatorView>
+                                                </subviews>
+                                            </stackView>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rWY-vo-aBa">
-                                                <rect key="frame" x="0.0" y="193.5" width="414" height="64.5"/>
+                                                <rect key="frame" x="0.0" y="206.5" width="414" height="51.5"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                             </view>
                                         </subviews>
@@ -258,6 +266,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="activityIndicator" destination="hc7-2U-53B" id="uvr-Mn-j2x"/>
                         <outlet property="button" destination="hD7-hl-fOn" id="Z7A-c5-JSg"/>
                         <outlet property="locationTextField" destination="Djp-nb-W5Q" id="CJN-tN-he3"/>
                         <outlet property="mapView" destination="ZPB-MH-CwQ" id="tuE-80-PTu"/>

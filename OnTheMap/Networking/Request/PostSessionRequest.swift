@@ -6,24 +6,24 @@
 //
 
 import Foundation
-struct PostSessionRequest: Codable {
+
+// Request object for creating(posting) a new session (loggin in)
+struct PostSessionRequest: Codable, LocalizedError {
     let udacity:SessionUserInfo
     enum CodingKeys: String, CodingKey {
         case udacity
     }
+    var errorDescription: String? {
+        return "Bad user input info"
+    }
 }
 
+// Additional Response object for user info
 struct SessionUserInfo: Codable {
     let username: String
     let password: String
     enum CodingKeys: String, CodingKey {
         case username
         case password
-    }
-}
-
-extension PostSessionRequest: LocalizedError {
-    var errorDescription: String? {
-        return "Bad user input info"
     }
 }
